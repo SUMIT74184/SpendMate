@@ -7,6 +7,7 @@ import org.example.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -32,7 +33,7 @@ public class SecurityConfig {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private final UserDetailsServiceImpl userDetailsService;
+    private final UserDetailsServiceImpl userDetailsServiceImpl;
 
     @Bean
     @Autowired
@@ -45,7 +46,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable).cors(CorsConfigurer::disable)
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/auth/v1/login","/auth/v1/refreshToken","/auth/v1/signup").permitAll()
+                        .requestMatchers("/api/v1/login","/api/v1/refreshToken","/api/v1/signup").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess->sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -54,16 +55,21 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider())
                 .build();
     }
-
     @Bean
-    public AuthenticationProvider authenticationProvider(UserDetailsServiceImpl userDetailsServiceImpl){
+    public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsServiceImpl);
         authenticationProvider.setPasswordEncoder(passwordEncoder);
         return authenticationProvider;
     }
     @Bean
-    public AuthenticationManger authenticationManger(AuthenticationConfiguration config) throws Exception{
-        return config.getAuthenticationManager()
+    public AuthenticationManager authenticationManger(AuthenticationConfiguration config) throws Exception{
+        return config.getAuthenticationManager();
     }
 }
+//
+//{
+//        "username":"sumit654",
+//        "email":"sumit12@gmoil.com",
+//        "password":"coll"
+//        }
