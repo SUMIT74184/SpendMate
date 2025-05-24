@@ -52,6 +52,10 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-api:0.12.5'  // Use the latest version
     implementation 'io.jsonwebtoken:jjwt-impl:0.12.5'
     implementation 'io.jsonwebtoken:jjwt-jackson:0.12.5' //f
+
+    //kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+
     // Test support
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testAnnotationProcessor 'org.projectlombok:lombok'

@@ -22,7 +22,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import java.io.IOException;
 
 @Configuration
 @EnableMethodSecurity
@@ -67,9 +66,3 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 }
-//
-//{
-//        "username":"sumit654",
-//        "email":"sumit12@gmoil.com",
-//        "password":"coll"
-//        }
