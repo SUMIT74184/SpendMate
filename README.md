@@ -61,16 +61,6 @@ flowchart LR
 
   D -->|ChatGPT API| I[🤖 OpenAI GPT-4]
 
-📂 Project Structure
-SpendMate/
-├── expense-service/       # Core service: CRUD for expenses
-├── analytics-service/     # Aggregates & reports expenses
-├── query-service/         # ChatGPT-powered queries
-├── kafka-config/          # Kafka producer & consumer configs
-├── docker-compose.yml     # Orchestration for services + Kafka + MySQL
-├── scripts/               # DB migrations, init scripts
-└── README.md
-
 ⚙️ Environment Variables
 
 Create .env file(s) as needed:
