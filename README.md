@@ -161,4 +161,4 @@ Open a PR 🚀
 
 📜 License
 
-MIT © 2025 Sumit
+This project is not open-source licensed. All rights reserved © 2025 Sumit .
